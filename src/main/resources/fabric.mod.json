@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "id": "afkdetector",
+  "version": "${version}",
+  "name": "Afk Detector",
+  "description": "",
+  "authors": [
+    "enjarai"
+  ],
+  "contact": {
+    "website": "enjarai.nl"
+  },
+  "license": "MIT",
+  "icon": "assets/afkdetector/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "nl.enjarai.afkdetector.AfkDetector"
+    ]
+  },
+  "mixins": [
+    "afkdetector.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.12.4",
+    "fabric": "*",
+    "minecraft": "1.17.1",
+    "styledplayerlist": ">=2.1.2"
+  }
+}
