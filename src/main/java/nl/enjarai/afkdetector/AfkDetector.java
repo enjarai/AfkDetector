@@ -57,10 +57,12 @@ public class AfkDetector implements ModInitializer {
         // Define and register the placeholderAPI placeholder
         PlaceholderAPI.register(new Identifier("afk", "displayname"), context -> {
             ServerPlayerEntity player = context.getPlayer();
+            PlaceholderResult result = PlaceholderAPI.getPlaceholders().get(
+                    new Identifier("player", "displayname")).PlaceholderHandler(context);
             if (TRACKER.isAfk(player.getUuid())) {
                 HashMap<String, Text> placeholders = new HashMap<>();
 
-                placeholders.put("displayname", new LiteralText(player.getDisplayName().asString()));
+                placeholders.put("displayname", new LiteralText(result.getString()));
 
                 return PlaceholderResult.value(PlaceholderAPI.parsePredefinedText(
                         TextParser.parse(CONFIG.afkNameFormat),
@@ -68,8 +70,7 @@ public class AfkDetector implements ModInitializer {
                         placeholders
                 ));
             } else {
-                return PlaceholderAPI.getPlaceholders().get(
-                        new Identifier("player", "displayname")).PlaceholderHandler(context);
+                return result;
             }
         });
 
