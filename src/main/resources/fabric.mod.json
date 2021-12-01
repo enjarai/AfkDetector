@@ -24,7 +24,7 @@
   "depends": {
     "fabricloader": ">=0.11.0",
     "fabric": "*",
-    "minecraft": "1.17.1",
+    "minecraft": "*",
     "styledplayerlist": ">=2.1.2"
   }
 }
